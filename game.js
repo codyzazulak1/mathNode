@@ -12,6 +12,7 @@ var turn = PLAYER_1;
 var playerAnswer 	= 0;
 
 var prompt = require('sync-prompt').prompt;
+var colors = require('colors');
 
 function trueAddAnswer () 	{ return (firstRandom + secondRandom) == playerAnswer };
 function trueSubAnswer () 	{ return (firstRandom - secondRandom) == playerAnswer };
@@ -63,10 +64,10 @@ function chooseMath() {
 function answerForP1() {
 	if ( !trueAnswer() ) {
 		p1Lives -= 1;
-		console.log("Wrong! Health -1. Player 2, get ready. Yours lives are at:");
+		console.log("Wrong! Health -1. Player 2, get ready. Yours lives are at:".red);
 	}
 	else {
-		console.log("Right! Player 2, get ready. Yours lives are at:");
+		console.log("Right! Player 2, get ready. Yours lives are at:".rainbow);
 	}
 	turn = PLAYER_2;
 	console.log(p1Lives);
@@ -75,10 +76,10 @@ function answerForP1() {
 function answerForP2() {
 	if ( !trueAnswer() ) {
 		p2Lives -= 1;
-		console.log("Wrong! Health -1. Player 1, get ready. Yours lives are at:");
+		console.log("Wrong! Health -1. Player 1, get ready. Yours lives are at:".red);
 	}
 	else {
-		console.log("Right! Player 1, get ready. Yours lives are at:");
+		console.log("Right! Player 1, get ready. Yours lives are at:".rainbow);
 	}
 	turn = PLAYER_1;
 	console.log(p2Lives);
@@ -87,13 +88,13 @@ function answerForP2() {
 
 function p1GameOver() {
 	if(p1Lives == 0) {
-		console.log("Player 2 WINS!");
+		console.log("Player 2 WINS!".rainbow);
 	}
 }
 
 function p2GameOver() {
 	if(p2Lives == 0) {
-		console.log("Player 1 WINS!");
+		console.log("Player 1 WINS!".rainbow);
 	}
 }
 
